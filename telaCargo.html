@@ -1,0 +1,41 @@
+<html>
+<title>SAR</title>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <form>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>
+                        Cadastrar Cargo
+                    </h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="nomeitem">Nome do cargo:</label><br>
+                            <input type="text" id="nomeCargo" name="nomeCargo"><br><br>
+                            <button type="button" class="btn btn-primary">Confirmar</button><br><br>
+
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</body>
+
+</html>
