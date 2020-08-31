@@ -1,0 +1,72 @@
+<html>
+<title>SAR</title>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <form>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>
+                        Cadastrar item no cardápio
+                    </h3><br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="nomeitem">Nome do item:</label><br>
+                            <input type="text" id="nomeitem" name="nomeitem"><br>
+                            <label for="preco">Preço:</label><br>
+                            <input type="text" id="preco" name="preco"><br>
+
+                            <br>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="insumo">Adicionar insumo:</label><br>
+                            <select name="insumo" id="insumo">
+                               <option value="tomate">Tomate</option>
+                                <option value="alface">Alface</option>
+                                <option value="arroz">Arroz</option>
+                                <option value="feijao">Feijão</option>
+                                <option value="frango">Frango</option>
+                            </select><br><br>
+                            <label for="quantidade">Quantidade:</label><br>
+                            <input type="und" id="und" name="und">
+                            <label for="und">Unidade:</label>
+                            <select name="und" id="und">
+                                <option value="kg">Kg</option>
+                                <option value="g">g</option>
+                                <option value="L">L</option>
+                                <option value="mL">mL</option>
+                           </select><br><br>
+                            <button type="button" class="btn btn-success">Adicionar</button><br><br>
+
+                            <label for="insumo">Insumos:</label><br>
+                            <select id="insumo" name="insumo" size="4" multiple>
+                             <option value="alface">Alface</option>
+                             <option value="arroz">Arroz</option>
+                             <option value="feijao">Feijão</option>
+                             <option value="frango">Frango</option>
+                            </select><br><br>
+
+                            <button type="button" class="btn btn-primary">Confirmar</button><br><br>
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
+    </form>
+
+</body>
+
+</html>
