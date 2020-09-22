@@ -5,16 +5,30 @@
  */
 package model;
 
+import dao.CargoDAO;
+import java.sql.SQLException;
+import java.util.List;
+
 /**
  *
  * @author Filipe Lacerda
  */
 public class Cargo {
 
-  
+     public static List<Cargo> obterCargo() throws ClassNotFoundException, SQLException {
+        return CargoDAO.getInstance().obterCargo();
+    }
+
    private int idCargo;
    private String nomeCargo;
 
+   public Cargo(){
+        super();
+    }
+    public Cargo(int idCargo, String nomeCargo) {
+        this.idCargo = idCargo;
+        this.nomeCargo = nomeCargo;
+    }
     /**
      * @return the idCargo
      */

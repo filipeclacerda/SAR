@@ -5,17 +5,34 @@
  */
 package model;
 
+import dao.CardapioDAO;
+import java.sql.SQLException;
+import java.util.List;
+
 /**
  *
  * @author Filipe Lacerda
  */
 public class Cardapio {
 
-   
+    public static List<Cardapio> obterCardapio() throws ClassNotFoundException, SQLException {
+        return CardapioDAO.getInstance().obterCardapio();
+    }
+
+
     private int idCardapio;
     private String nomeCardapio;
-    private int preco;
-    
+    private float preco;
+
+    public Cardapio(){
+        super();
+    }
+    public Cardapio(int idCardapio, String nomeCardapio, float preco) {
+        this.idCardapio = idCardapio;
+        this.nomeCardapio = nomeCardapio;
+        this.preco = preco;
+    }
+
 
     /**
      * @return the idCardapio
@@ -48,18 +65,15 @@ public class Cardapio {
     /**
      * @return the Preco
      */
-    public int getPreco() {
+    public float getPreco() {
         return preco;
     }
 
     /**
      * @param Preco the Preco to set
      */
-    public void setPreco(int Preco) {
+    public void setPreco(float Preco) {
         this.preco = Preco;
     }
 
- 
-    
-    
 }

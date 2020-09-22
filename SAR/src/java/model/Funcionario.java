@@ -5,13 +5,21 @@
  */
 package model;
 
+import dao.FuncionarioDAO;
+import java.sql.SQLException;
+import java.util.List;
+
 /**
  *
  * @author Filipe Lacerda
  */
 public class Funcionario {
 
-   
+    
+
+   public static List<Funcionario> obterFuncionario() throws ClassNotFoundException, SQLException {
+        return FuncionarioDAO.getInstance().obterFuncionario();
+    }
 
  
    private int idFuncionario;
@@ -25,7 +33,25 @@ public class Funcionario {
    private String telefone;
    
    private Cargo cargo;
+   private int idCargo;
    
+   public Funcionario(){
+        super();
+    }
+    public Funcionario(int idFuncionario, String nome, float salario, String logradouro, int numero, String bairro, String cidade, String estado, String telefone, Cargo cargo) {
+        this.idFuncionario = idFuncionario;
+        this.nome = nome;
+        this.salario = salario;
+        this.nome = nome;
+        this.logradouro = logradouro;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.telefone = telefone;
+        this.cargo = cargo;
+        
+    }
     /**
      * @return the idFuncionario
      */
@@ -163,6 +189,19 @@ public class Funcionario {
      */
     public void setCargo(Cargo cargo) {
         this.cargo = cargo;
+    }
+    /**
+     * @return the idCargo
+     */
+    public int getIdCargo() {
+        return idCargo;
+    }
+
+    /**
+     * @param idCargo the idCargo to set
+     */
+    public void setIdCargo(int idCargo) {
+        this.idCargo = idCargo;
     }
     
 }
