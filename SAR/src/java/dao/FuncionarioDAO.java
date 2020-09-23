@@ -28,7 +28,7 @@ public class FuncionarioDAO extends DAO{
     private FuncionarioDAO() {
     }
 
-    public List<Funcionario> obterFuncionario()
+    public List<Funcionario> obterFuncionarios()
             throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         Statement st = null;
@@ -47,6 +47,26 @@ public class FuncionarioDAO extends DAO{
             closeResources(conexao, st);
         }
         return funcionarios;
+    }
+    
+    public Funcionario obterFuncionario(int codFuncionario) throws ClassNotFoundException, SQLException{
+     Connection conexao = null;
+     Statement comando = null;
+     Funcionario funcionario = null;
+     try{
+         conexao = BD.getInstance().getConexao();
+         comando = conexao.createStatement();
+         ResultSet rs= comando.executeQuery("select * from funcionario where idFuncionario = "+ codFuncionario);
+         rs.first();
+         funcionario = instanciarFuncionario(rs);
+         
+     }
+     finally{
+         closeResources(conexao, comando);
+         
+     }
+     return funcionario;
+        
     }
 
     private Funcionario instanciarFuncionario(ResultSet rs) throws SQLException{

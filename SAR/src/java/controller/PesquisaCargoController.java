@@ -32,7 +32,7 @@ public class PesquisaCargoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            request.setAttribute("cargos", Cargo.obterCargo());
+            request.setAttribute("cargos", Cargo.obterCargos());
             RequestDispatcher view = request.getRequestDispatcher("/pesquisaCargo.jsp");
             view.forward(request, response);
         } catch(ClassNotFoundException e){

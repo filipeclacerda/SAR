@@ -32,7 +32,7 @@ public class PesquisaFuncionarioController extends HttpServlet {
      protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-         request.setAttribute("funcionarios", Funcionario.obterFuncionario());
+         request.setAttribute("funcionarios", Funcionario.obterFuncionarios());
             RequestDispatcher view = request.getRequestDispatcher("/pesquisaFuncionario.jsp");
             view.forward(request, response);
         } catch(ClassNotFoundException e){

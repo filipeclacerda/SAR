@@ -15,7 +15,7 @@
                 <th>idFuncionario</th>
                 <th>Nome</th>
                 <th>Telefone</th>
-                <th>idCargo</th>
+                <th>Cargo</th>
                 
             </tr>
             <c:forEach items="${funcionarios}" var="funcionario">
@@ -23,7 +23,7 @@
                     <td><c:out value="${funcionario.idFuncionario}" /></td>
                     <td><c:out value="${funcionario.nome}" /></td>
                     <td><c:out value="${funcionario.telefone}" /></td>
-                    <td><c:out value="${funcionario.idCargo}" /></td>
+                    <td><c:out value="${funcionario.cargo.nomeCargo}" /></td>
                     <td><a href="ManterFuncionarioController?acao=prepararOperacao&operacao=Editar&idFuncionario=<c:out value="${funcionario.idFuncionario}"/>">Editar</a></td>
                     <td><a href="ManterFuncionarioController?acao=prepararOperacao&operacao=Excluir&idFuncionario=<c:out value="${funcionario.idFuncionario}"/>">Excluir</a></td>
                 </tr>

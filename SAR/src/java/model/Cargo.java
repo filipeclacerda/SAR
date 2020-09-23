@@ -14,9 +14,12 @@ import java.util.List;
  * @author Filipe Lacerda
  */
 public class Cargo {
-
-     public static List<Cargo> obterCargo() throws ClassNotFoundException, SQLException {
-        return CargoDAO.getInstance().obterCargo();
+    
+        public static Cargo obterCargo(int codCargo) throws ClassNotFoundException, SQLException{
+        return CargoDAO.getInstance().obterCargo(codCargo);
+    }
+     public static List<Cargo> obterCargos() throws ClassNotFoundException, SQLException {
+        return CargoDAO.getInstance().obterCargos();
     }
 
    private int idCargo;

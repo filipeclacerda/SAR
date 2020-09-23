@@ -15,8 +15,11 @@ import java.util.List;
  */
 public class Cardapio {
 
-    public static List<Cardapio> obterCardapio() throws ClassNotFoundException, SQLException {
-        return CardapioDAO.getInstance().obterCardapio();
+    public static Cardapio obterCardapio(int codCardapio) throws ClassNotFoundException, SQLException{
+        return CardapioDAO.getInstance().obterCardapio(codCardapio);
+    }
+    public static List<Cardapio> obterCardapios() throws ClassNotFoundException, SQLException {
+        return CardapioDAO.getInstance().obterCardapios();
     }
 
 

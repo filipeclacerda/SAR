@@ -23,7 +23,7 @@ public class DespesaDAO extends DAO {
     }
     private DespesaDAO() {};
 
-    public List<Despesa> obterDespesa()
+    public List<Despesa> obterDespesas()
             throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         Statement st = null;
@@ -42,6 +42,25 @@ public class DespesaDAO extends DAO {
             closeResources(conexao,st);
         }
         return despesas;
+    }
+    public Despesa obterDespesa(int codDespesa) throws ClassNotFoundException, SQLException{
+     Connection conexao = null;
+     Statement comando = null;
+     Despesa despesa = null;
+     try{
+         conexao = BD.getInstance().getConexao();
+         comando = conexao.createStatement();
+         ResultSet rs= comando.executeQuery("select * from despesa where idDespesa = "+ codDespesa);
+         rs.first();
+         despesa = instanciarDespesa(rs);
+         
+     }
+     finally{
+         closeResources(conexao, comando);
+         
+     }
+     return despesa;
+        
     }
 
     private Despesa instanciarDespesa(ResultSet rs) {

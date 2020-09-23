@@ -20,7 +20,7 @@ public class CardapioDAO extends DAO {
     private CardapioDAO() {
     }
 
-    public List<Cardapio> obterCardapio()
+    public List<Cardapio> obterCardapios()
             throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         Statement st = null;
@@ -39,6 +39,25 @@ public class CardapioDAO extends DAO {
             closeResources(conexao, st);
         }
         return cardapios;
+    }
+    public Cardapio obterCardapio(int codCardapio) throws ClassNotFoundException, SQLException{
+     Connection conexao = null;
+     Statement comando = null;
+     Cardapio cardapio = null;
+     try{
+         conexao = BD.getInstance().getConexao();
+         comando = conexao.createStatement();
+         ResultSet rs= comando.executeQuery("select * from cardapio where idCardapio = "+ codCardapio);
+         rs.first();
+         cardapio = instanciarCardapio(rs);
+         
+     }
+     finally{
+         closeResources(conexao, comando);
+         
+     }
+     return cardapio;
+        
     }
 
     private Cardapio instanciarCardapio(ResultSet rs) throws SQLException{

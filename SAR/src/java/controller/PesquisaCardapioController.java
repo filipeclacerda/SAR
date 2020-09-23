@@ -35,7 +35,7 @@ public class PesquisaCardapioController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            request.setAttribute("cardapios", Cardapio.obterCardapio());
+            request.setAttribute("cardapios", Cardapio.obterCardapios());
             RequestDispatcher view = request.getRequestDispatcher("/pesquisaCardapio.jsp");
             view.forward(request, response);
         } catch(ClassNotFoundException e){

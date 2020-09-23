@@ -15,10 +15,12 @@ import java.util.List;
  */
 public class Funcionario {
 
-    
+        public static Funcionario obterFuncionario(int codFuncionario) throws ClassNotFoundException, SQLException{
+        return FuncionarioDAO.getInstance().obterFuncionario(codFuncionario);
+    }
 
-   public static List<Funcionario> obterFuncionario() throws ClassNotFoundException, SQLException {
-        return FuncionarioDAO.getInstance().obterFuncionario();
+   public static List<Funcionario> obterFuncionarios() throws ClassNotFoundException, SQLException {
+        return FuncionarioDAO.getInstance().obterFuncionarios();
     }
 
  
@@ -193,9 +195,15 @@ public class Funcionario {
     /**
      * @return the idCargo
      */
-    public int getIdCargo() {
-        return idCargo;
+    public Cargo getIdCargo() throws ClassNotFoundException, SQLException{
+        if((this.idCargo != 0) && (this.cargo == null)){
+            this.cargo = Cargo.obterCargo(this.idCargo);
+            
+        }
+        return this.cargo;
     }
+    
+ 
 
     /**
      * @param idCargo the idCargo to set

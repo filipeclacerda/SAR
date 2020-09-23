@@ -23,7 +23,7 @@ public class CargoDAO extends DAO {
     }
     private CargoDAO() {};
 
-    public List<Cargo> obterCargo()
+    public List<Cargo> obterCargos()
             throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         Statement st = null;
@@ -43,6 +43,26 @@ public class CargoDAO extends DAO {
         }
         return cargos;
     }
+    public Cargo obterCargo(int codCargo) throws ClassNotFoundException, SQLException{
+     Connection conexao = null;
+     Statement comando = null;
+     Cargo cargo = null;
+     try{
+         conexao = BD.getInstance().getConexao();
+         comando = conexao.createStatement();
+         ResultSet rs= comando.executeQuery("select * from cargo where idCargo = "+ codCargo);
+         rs.first();
+         cargo = instanciarCargo(rs);
+         
+     }
+     finally{
+         closeResources(conexao, comando);
+         
+     }
+     return cargo;
+        
+    }
+    
 
     private Cargo instanciarCargo(ResultSet rs) throws SQLException{
         Cargo cargo = new Cargo(rs.getInt("idCargo"),
