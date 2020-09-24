@@ -12,6 +12,10 @@
         <servlet-name>PesquisaFuncionarioController</servlet-name>
         <servlet-class>controller.PesquisaFuncionarioController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManterCargoController</servlet-name>
+        <servlet-class>controller.ManterCargoController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PesquisaCardapioController</servlet-name>
         <url-pattern>/PesquisaCardapioController</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>PesquisaFuncionarioController</servlet-name>
         <url-pattern>/PesquisaFuncionarioController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManterCargoController</servlet-name>
+        <url-pattern>/ManterCargoController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

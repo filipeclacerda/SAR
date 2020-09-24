@@ -27,7 +27,7 @@
                 </tr>
             </c:forEach>
         </table>
-        <form action="ManterCardapioController?acao=prepararOperacao&operacao=Incluir" method="post">
+        <form action="ManterCargoController?acao=prepararOperacao&operacao=Incluir" method="post">
             <input type="submit" name="btnIncluir" value="Incluir">
         </form>
     </body>
