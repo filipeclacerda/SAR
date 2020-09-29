@@ -71,5 +71,22 @@ public class CargoDAO extends DAO {
         return cargo;
     }
 
-   
+   public void gravar(Cargo cargo) throws SQLException, ClassNotFoundException {
+       Connection conexao = null;
+       PreparedStatement comando = null;
+   try {
+    conexao = BD.getInstance().getConexao();
+    comando = conexao.prepareStatement("insert into cargo(idCargo, NomeCargo) values(?,?)");
+    comando.setInt(1, cargo.getIdCargo());
+    comando.setString(2, cargo.getNomeCargo());
+    // if (curso.getCoordenador() == null ) {
+    // comando.setNull(3, Types.INTEGER);
+    // } else {
+    // comando.setInt(3, curso.getCoordenador().getMatricula());
+    // }
+    comando.executeUpdate();
+}finally{
+       closeResources(conexao, comando);
+   }
+}
 }

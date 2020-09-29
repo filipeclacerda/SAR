@@ -58,5 +58,8 @@ public class Cargo {
     public void setNomeCargo(String nomeCargo) {
         this.nomeCargo = nomeCargo;
     }
-
+    
+    public void gravar() throws SQLException, ClassNotFoundException {
+    CargoDAO.getInstance().gravar(this);
+}
 }

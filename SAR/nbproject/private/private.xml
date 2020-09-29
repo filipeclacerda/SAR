@@ -2,13 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/caiov/OneDrive/Documentos/NetBeansProjects/SAR-master/SAR/src/java/controller/ManterCargoController.java</file>
-            <file>file:/C:/Users/caiov/OneDrive/Documentos/NetBeansProjects/SAR-master/SAR/src/java/dao/CargoDAO.java</file>
-            <file>file:/C:/Users/caiov/OneDrive/Documentos/NetBeansProjects/SAR-master/SAR/web/pesquisaCargo.jsp</file>
-            <file>file:/C:/Users/caiov/OneDrive/Documentos/NetBeansProjects/SAR-master/SAR/web/telaCargo.jsp</file>
-            <file>file:/C:/Users/caiov/OneDrive/Documentos/NetBeansProjects/SAR-master/SAR/src/java/controller/PesquisaCargoController.java</file>
-            <file>file:/C:/Users/caiov/OneDrive/Documentos/NetBeansProjects/SAR-master/SAR/src/java/model/Cargo.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

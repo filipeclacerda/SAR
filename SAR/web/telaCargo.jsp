@@ -1,3 +1,6 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>  
 <html>
 <title>SAR</title>
 
@@ -10,30 +13,24 @@
 </head>
 
 <body>
-    <form>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6">
-                    <h3>
-                        Cadastrar Cargo
-                    </h3>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="nomeitem">Nome do cargo:</label><br>
-                            <input type="text" id="nomeCargo" name="nomeCargo"><br><br>
-                            <button type="button" class="btn btn-primary">Confirmar</button><br><br>
-
-                        </div>
-                        <div class="col-md-6">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                </div>
-            </div>
-        </div>
-
+    <h1>
+        Manter Cargo - ${operacao}
+    </h1>
+    <form action="ManterCargoController?acao=confirmarOperacao&operacao=${operacao}" method="post" name="frmManterCargo">
+        <table>
+            <tr>
+                <td>
+                    Codigo do Cargo:
+                </td> <td><input type="text" name="idCargo" value="${cargo.idCargo}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if></td>
+            </tr>
+            <tr>
+                <td>
+                Nome Cargo:
+                </td>
+            <td><input type="text" name="nomeCargo" value="${cargo.nomeCargo}" <c:if test="${operacao != 'Excluir'}"> readonly</c:if></td>
+            </tr>
+            <input type="submit"/>
+        </table>
     </form>
 
 </body>

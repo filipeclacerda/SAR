@@ -32,8 +32,12 @@ public class ManterCargoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String acao = request.getParameter("acao");
-        if (acao.equals("prepararOperacao")) {
-            prepararOperacao(request, response);
+        if (acao.equals("confirmarOperacao")) {
+            confirmarOperacao(request, response);
+        } else {
+            if (acao.equals("prepararOperacao")) {
+                prepararOperacao(request, response);
+            }
         }
     }
 
@@ -42,7 +46,7 @@ public class ManterCargoController extends HttpServlet {
         try {
             String operacao = request.getParameter("operacao");
             request.setAttribute("operacao", operacao);
-            request.setAttribute("cargo", Cargo.obterCargos());
+           //request.setAttribute("cargo", Cargo.obterCargos());
             if (!operacao.equals("Incluir")) {
                 int idCargo = Integer.parseInt(request.getParameter("idCargo"));
                 Cargo cargo = Cargo.obterCargo(idCargo);
@@ -61,7 +65,40 @@ public class ManterCargoController extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+        String operacao = request.getParameter("operacao");
+        int idCargo = Integer.parseInt(request.getParameter("idCargo"));
+        String nomeCargo = request.getParameter("nomeCargo");
+        try {
+            // Professor professor = null;
+            // if (coordenador ! = 0 ) {
+            // professor = Professor.obterProfessor(coordenador);
+            Cargo cargo = new Cargo(idCargo, nomeCargo);
+            if (operacao.equals("Incluir")) {
+                cargo.gravar();
+                // } else {
+                //   if (operacao.equals("Editar")) {
+                //       cargo.alterar();
+                // } else {
+                //     if (operacao.equals("Excluir")) {
+                //        cargo.excluir();
+                //    }
+                //  }
+            }
+            RequestDispatcher view = request.getRequestDispatcher("PesquisaCargoController");
+            view.forward(request, response);
+        } catch (IOException e) {
+            throw new ServletException(e);
+        } catch (SQLException e) {
+            throw new ServletException(e);
+        } catch (ClassNotFoundException e) {
+            throw new ServletException(e);
+        } catch (ServletException e) {
+            throw e;
+        }
+    }
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+
     /**
      * Handles the HTTP <code>GET</code> method.
      *
